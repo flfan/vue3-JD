@@ -2,84 +2,18 @@
   <div class="nearby">
     <h3 class="nearby_title">附近店铺</h3>
     <div class="nearby_items">
-      <div class="nearby_item">
+      <div class="nearby_item" v-for="(item, index) in nearbyList" :key="index">
         <img
           class="item_img"
-          src="http://www.dell-lee.com/imgs/vue3/near.png"
-          alt=""
+          :src="item.img"
+          :alt="item.name"
         />
         <div class="item_info">
-          <div class="item_name">沃尔玛</div>
+          <div class="item_name">{{item.name}}</div>
           <div class="item_tags">
-            <div class="item_tag">月售1万+</div>
-            <div class="item_tag">起送¥0</div>
-            <div class="item_tag">基础运费¥5</div>
+            <div class="item_tag" v-for="el in item.tags" :key="el">{{el}}</div>
           </div>
-          <div class="item_highlight">VIP尊享满89元减4元运费券（每月3张）</div>
-        </div>
-      </div>
-      <div class="nearby_item">
-        <img
-          class="item_img"
-          src="http://www.dell-lee.com/imgs/vue3/near.png"
-          alt=""
-        />
-        <div class="item_info">
-          <div class="item_name">沃尔玛</div>
-          <div class="item_tags">
-            <div class="item_tag">月售1万+</div>
-            <div class="item_tag">起送¥0</div>
-            <div class="item_tag">基础运费¥5</div>
-          </div>
-          <div class="item_highlight">VIP尊享满89元减4元运费券（每月3张）</div>
-        </div>
-      </div>
-      <div class="nearby_item">
-        <img
-          class="item_img"
-          src="http://www.dell-lee.com/imgs/vue3/near.png"
-          alt=""
-        />
-        <div class="item_info">
-          <div class="item_name">沃尔玛</div>
-          <div class="item_tags">
-            <div class="item_tag">月售1万+</div>
-            <div class="item_tag">起送¥0</div>
-            <div class="item_tag">基础运费¥5</div>
-          </div>
-          <div class="item_highlight">VIP尊享满89元减4元运费券（每月3张）</div>
-        </div>
-      </div>
-      <div class="nearby_item">
-        <img
-          class="item_img"
-          src="http://www.dell-lee.com/imgs/vue3/near.png"
-          alt=""
-        />
-        <div class="item_info">
-          <div class="item_name">沃尔玛</div>
-          <div class="item_tags">
-            <div class="item_tag">月售1万+</div>
-            <div class="item_tag">起送¥0</div>
-            <div class="item_tag">基础运费¥5</div>
-          </div>
-          <div class="item_highlight">VIP尊享满89元减4元运费券（每月3张）</div>
-        </div>
-      </div>
-      <div class="nearby_item">
-        <img
-          class="item_img"
-          src="http://www.dell-lee.com/imgs/vue3/near.png"
-          alt=""
-        />
-        <div class="item_info">
-          <div class="item_name">沃尔玛</div>
-          <div class="item_tags">
-            <div class="item_tag">月售1万+</div>
-            <div class="item_tag">起送¥0</div>
-            <div class="item_tag">基础运费¥5</div>
-          </div>
-          <div class="item_highlight">VIP尊享满89元减4元运费券（每月3张）</div>
+          <div class="item_highlight">{{item.desc}}</div>
         </div>
       </div>
     </div>
@@ -88,11 +22,41 @@
 
 <script>
 export default {
-  name: 'Nearby'
+  name: 'Nearby',
+  setup () {
+    const nearbyList = [
+      {
+        img: 'http://www.dell-lee.com/imgs/vue3/near.png',
+        name: '沃尔玛',
+        tags: ['月售1万+', '起送¥0', '基础运费¥5'],
+        desc: 'VIP尊享满89元减4元运费券（每月3张）'
+      },
+      {
+        img: 'http://www.dell-lee.com/imgs/vue3/near.png',
+        name: '沃尔玛',
+        tags: ['月售1万+', '起送¥0', '基础运费¥5'],
+        desc: 'VIP尊享满89元减4元运费券（每月3张）'
+      },
+      {
+        img: 'http://www.dell-lee.com/imgs/vue3/near.png',
+        name: '沃尔玛',
+        tags: ['月售1万+', '起送¥0', '基础运费¥5'],
+        desc: 'VIP尊享满89元减4元运费券（每月3张）'
+      },
+      {
+        img: 'http://www.dell-lee.com/imgs/vue3/near.png',
+        name: '沃尔玛',
+        tags: ['月售1万+', '起送¥0', '基础运费¥5'],
+        desc: 'VIP尊享满89元减4元运费券（每月3张）'
+      }
+    ]
+
+    return { nearbyList }
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/variables.scss";
 .nearby {
   margin-bottom: 0.16rem;

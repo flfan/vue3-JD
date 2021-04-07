@@ -1,31 +1,32 @@
 <template>
   <div class="docker">
-    <div class="docker_item docker_item-active">
-      <div class="iconfont">&#xe6f3;</div>
-      <div class="docker_item_title">首页</div>
-    </div>
-    <div class="docker_item">
-      <div class="iconfont">&#xe7e5;</div>
-      <div class="docker_item_title">购物车</div>
-    </div>
-    <div class="docker_item">
-      <div class="iconfont">&#xe61e;</div>
-      <div class="docker_item_title">订单</div>
-    </div>
-    <div class="docker_item">
-      <div class="iconfont">&#xe660;</div>
-      <div class="docker_item_title">我的</div>
+    <div
+      :class="{docker_item: true,  'docker_item-active':index === 0 }"
+      v-for="(item, index) in dockerList" :key="index"
+    >
+      <div class="iconfont" v-html="item.icon"></div>
+      <div class="docker_item_title">{{item.text}}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Docker'
+  name: 'Docker',
+  setup () {
+    const dockerList = [
+      { icon: '&#xe6f3;', text: '首页' },
+      { icon: '&#xe7e5;', text: '购物车' },
+      { icon: '&#xe61e;', text: '订单' },
+      { icon: '&#xe660;', text: '我的' }
+    ]
+
+    return { dockerList }
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/variables.scss";
 .docker {
   position: absolute;

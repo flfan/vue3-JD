@@ -18,96 +18,40 @@
     />
   </div>
   <div class="icons">
-    <div class="icons_item">
+    <div class="icons_item" v-for="item in iconsList" :key="item.desc">
       <img
         class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
+        :src="`http://www.dell-lee.com/imgs/vue3/${item.imgName}.png`"
+        :alt="item.desc"
       />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
-    </div>
-    <div class="icons_item">
-      <img
-        class="icons_img"
-        src="http://www.dell-lee.com/imgs/vue3/超市.png"
-        alt="超市"
-      />
-      <div class="desc">超市便利</div>
+      <div class="desc">{{item.desc}}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'StaticPart'
+  name: 'StaticPart',
+  setup () {
+    const iconsList = [
+      { imgName: '超市', desc: '超市便利' },
+      { imgName: '菜市场', desc: '菜市场' },
+      { imgName: '水果店', desc: '水果店' },
+      { imgName: '鲜花', desc: '鲜花绿植' },
+      { imgName: '医药健康', desc: '医药健康' },
+      { imgName: '家居', desc: '家居时尚' },
+      { imgName: '蛋糕', desc: '烘培蛋糕' },
+      { imgName: '签到', desc: '签到' },
+      { imgName: '大牌免运', desc: '大牌免运' },
+      { imgName: '红包', desc: '红包套餐' }
+    ]
+
+    return { iconsList }
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../styles/mixins.scss";
 .position {
   display: flex;
