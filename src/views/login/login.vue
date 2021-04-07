@@ -32,7 +32,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { post } from '../../utils/request.js'
 
-import Toast, { useToastEffect } from '../../components/Toast.vue'
+import Toast, { useToastEffect } from '../../components/toast.vue'
 
 const useLoginEffect = (showToast) => {
   const router = useRouter()
@@ -44,7 +44,7 @@ const useLoginEffect = (showToast) => {
 
   async function handleLogin () {
     try {
-      const result = await post('111/api/user/login', {
+      const result = await post('/api/user/login', {
         username: data.username,
         password: data.password
       })
