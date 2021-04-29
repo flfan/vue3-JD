@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 
-const setLocalCartList = (state) => {
+const setLocalCartList = state => {
   const { cartList } = state
   const cartListString = JSON.stringify(cartList)
   localStorage.cartList = cartListString
@@ -24,7 +24,8 @@ export default Vuex.createStore({
     changeCartItemInfo (state, payload) {
       const { shopId, productId, productInfo } = payload
       const shopInfo = state.cartList[shopId] || {
-        shopName: '', productList: {}
+        shopName: '',
+        productList: {}
       }
       let product = shopInfo.productList[productId]
       if (!product) {
@@ -32,8 +33,12 @@ export default Vuex.createStore({
         product = productInfo
       }
       product.count = product.count + payload.num
-      if (payload.num > 0) { product.check = true }
-      if (product.count < 0) { product.count = 0 }
+      if (payload.num > 0) {
+        product.check = true
+      }
+      if (product.count < 0) {
+        product.count = 0
+      }
       shopInfo.productList[productId] = product
       state.cartList[shopId] = shopInfo
       setLocalCartList(state)
@@ -41,7 +46,8 @@ export default Vuex.createStore({
     changeShopName (state, payload) {
       const { shopId, shopName } = payload
       const shopInfo = state.cartList[shopId] || {
-        shopName: '', productList: {}
+        shopName: '',
+        productList: {}
       }
       shopInfo.shopName = shopName
       state.cartList[shopId] = shopInfo
