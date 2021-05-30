@@ -1,4 +1,4 @@
-# jd_vue3
+# vue3 仿JD
 
 ## Project setup
 ```
