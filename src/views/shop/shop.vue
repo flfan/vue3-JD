@@ -23,9 +23,9 @@ import { reactive, toRefs } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 import { get } from '../../utils/request.js'
-import ShopInfo from '../../components/shopInfo'
-import Content from './content'
-import Cart from './cart'
+import ShopInfo from '../../components/ShopInfo'
+import Content from './Content'
+import Cart from './Cart'
 
 const useShopInfoEffect = () => {
   const route = useRoute()

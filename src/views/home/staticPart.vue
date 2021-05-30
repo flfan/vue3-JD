@@ -1,32 +1,33 @@
 <template>
   <div class="position">
-    <div class="iconfont position_icon">&#xe619;</div>
-    <div class="position_name">
-      北京理工大学国防科技园2号楼10层北京理工大学国防科技园2号楼10层
-    </div>
-    <div class="iconfont position_notice">&#xe60b;</div>
+    <span class="iconfont position__icon">&#xe619;</span>
+    北京理工大学国防科技园2号楼10层
+    <span class="iconfont position_notice">&#xe60b;</span>
   </div>
   <div class="search">
-    <div class="iconfont">&#xe62d;</div>
-    <div class="search_text">山姆会员商店优惠商品</div>
+    <span class="iconfont">&#xe62d;</span>
+    <span class="search__text">山姆会员商店优惠商品</span>
   </div>
   <div class="banner">
     <img
-      class="banner_img"
+      class="banner__img"
       src="http://www.dell-lee.com/imgs/vue3/banner.jpg"
-      alt="banner"
     />
   </div>
   <div class="icons">
-    <div class="icons_item" v-for="item in iconsList" :key="item.desc">
+    <div
+      class="icons__item"
+      v-for="item in iconsList"
+      :key="item.desc"
+    >
       <img
-        class="icons_img"
+        class="icons__item__img"
         :src="`http://www.dell-lee.com/imgs/vue3/${item.imgName}.png`"
-        :alt="item.desc"
       />
-      <div class="desc">{{item.desc}}</div>
+      <p class="icons__item__desc">{{item.desc}}</p>
     </div>
   </div>
+  <div class="gap"></div>
 </template>
 
 <script>
@@ -45,75 +46,79 @@ export default {
       { imgName: '大牌免运', desc: '大牌免运' },
       { imgName: '红包', desc: '红包套餐' }
     ]
-
     return { iconsList }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../styles/mixins.scss";
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 .position {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 0.22rem;
-  width: 100%;
-  font-size: 0.16rem;
-  &_name {
-    flex: 1;
-    margin-left: 0.085rem;
-    font-weight: bold;
-    @include ellipsis;
+  position: relative;
+  padding: .16rem .24rem .16rem 0;
+  line-height: .22rem;
+  font-size: .16rem;
+  @include ellipsis;
+  .position__icon {
+    position: relative;
+    top: .01rem;
+    font-size: .2rem;
   }
-  .iconfont {
-    font-size: 0.2rem;
+  .position_notice {
+    position: absolute;
+    right: 0;
+    top: .17rem;
+    font-size: .2rem;
   }
+  color: $content-fontcolor;
 }
 .search {
-  box-sizing: border-box;
-  margin-top: 0.16rem;
-  height: 0.32rem;
-  background: #f5f5f5;
-  color: #b7b7b7;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 0.16rem;
-  padding: 0.08rem 0.16rem;
-  border-radius: 16px;
-  &_text {
-    margin-left: 0.12rem;
-    font-size: 0.14rem;
-  }
+  margin-bottom: .12rem;
+  line-height: .32rem;
+  background: $search-bgColor;
+  color: $search-fontColor;
+  border-radius: .16rem;
   .iconfont {
-    font-size: 0.22rem;
+    display: inline-block;
+    padding: 0 .08rem 0 .16rem;
+    font-size: .16rem;
+  }
+  &__text {
+    display: inline-block;
+    font-size: .14rem;
   }
 }
 .banner {
-  margin-top: 0.12rem;
   height: 0;
   overflow: hidden;
   padding-bottom: 25.4%;
-  .banner_img {
+  &__img {
     width: 100%;
   }
 }
 .icons {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 0.16rem;
-  .icons_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: .16rem;
+  &__item {
     width: 20%;
-    margin-bottom: 0.16rem;
-    .icons_img {
-      width: 0.4rem;
-      height: 0.4rem;
-      margin-bottom: 0.06rem;
+    &__img {
+      display:block;
+      width: .4rem;
+      height: .4rem;
+      margin: 0 auto;
+    }
+    &__desc {
+      margin: .06rem 0 .16rem 0;
+      text-align: center;
+      color: $content-fontcolor;
     }
   }
+}
+.gap {
+  margin: 0 -.18rem;
+  height: .1rem;
+  background: $content-bgColor;
 }
 </style>

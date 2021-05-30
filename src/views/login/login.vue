@@ -32,7 +32,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { post } from '../../utils/request.js'
 
-import Toast, { useToastEffect } from '../../components/toast.vue'
+import Toast, { useToastEffect } from '../../components/Toast'
 
 const useLoginEffect = (showToast) => {
   const router = useRouter()

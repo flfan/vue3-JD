@@ -35,7 +35,7 @@
 import { useRouter } from 'vue-router'
 import { reactive, toRefs } from 'vue'
 import { post } from '../../utils/request'
-import Toast, { useToastEffect } from '../../components/toast.vue'
+import Toast, { useToastEffect } from '../../components/Toast'
 
 // 处理注册相关逻辑
 const useRegisterEffect = (showToast) => {
